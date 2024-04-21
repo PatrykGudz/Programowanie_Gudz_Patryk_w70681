@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Inter', sans-serif;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: gainsboro;
+}
+h1{
+    font-size: 50px;
+}
+h4{
+    font-size: 30px;
+}
+header{
+    position: relative;
+    width: 100%;
+    background-color: rgb(100, 128, 118);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 10px 2px #aaa;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 100;
+}
+#menu{
+    list-style: armenian;
+    display: inline-block;
+    align-items: flex-end;
+    gap: 20px 30px;
+    justify-content: end;
+}
+a:link{
+    color: red;
+    text-decoration: none;
+}
+a:visited{
+    color: red;
+    text-decoration: none;
+}
+a#glowna{
+    color: red;
+}
+article, section{
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 120px;
+    padding-right: 120px;
+    font-size: 20px;
+}
+article{
+    position: relative;
+    display: fixed;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px 120px;
+}
+.article-element{
+    width: 50%;
+}
+footer{
+    text-align: center;
+}
+section{
+    position: relative;
+}
+section::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+section::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.sekcja{
+    width: 50%;
+}
+#linki{
+    text-align: right;
+    
+}
+table, th, td {
+    border:1px solid black;
+  }
+.article-element{
+    text-align: center;
+    float: initial;
+  }
