@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podgatunki Kotów</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <h1>Hodowla Kotów</h1>
+            <nav>
+                <a href="index.html">Strona Główna</a>
+                <a href="subpage.html">Podgatunki</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Kot Perski</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+            <img src="persian.jpg" alt="Kot Perski">
+        </section>
+        <section>
+            <h2>Kot Syjamski</h2>
+            <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Nulla porttitor accumsan tincidunt.</p>
+            <img src="siamese.jpg" alt="Kot Syjamski">
+        </section>
+        <section>
+            <h2>Kot Maine Coon</h2>
+            <p>Pellentesque in ipsum id orci porta dapibus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>
+            <img src="mainecoon.jpg" alt="Kot Maine Coon">
+        </section>
+        <section>
+            <h2>Zwierzęta Użytkowników</h2>
+            <table id="animalTable">
+                <thead>
+                    <tr>
+                        <th>Imię</th>
+                        <th>Podgatunek</th>
+                        <th>Wiek</th>
+                        <th>Kolor Sierści</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Misia</td>
+                        <td>Kot Perski</td>
+                        <td>3 lata</td>
+                        <td>Biała</td>
+                    </tr>
+                    <tr>
+                        <td>Luna</td>
+                        <td>Kot Syjamski</td>
+                        <td>2 lata</td>
+                        <td>Szara</td>
+                    </tr>
+                    <tr>
+                        <td>Max</td>
+                        <td>Kot Maine Coon</td>
+                        <td>5 lat</td>
+                        <td>Brązowa</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form id="animalForm">
+                <h3>Dodaj Nowe Zwierzę</h3>
+                <label for="name">Imię:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="species">Podgatunek:</label>
+                <input type="text" id="species" name="species" required><br><br>
+                <label for="age">Wiek:</label>
+                <input type="number" id="age" name="age" min="0" required><br><br>
+                <label for="color">Kolor Sierści:</label>
+                <input type="text" id="color" name="color" required><br><br>
+                <input type="submit" value="Dodaj Zwierzę">
+            </form>
+            <div id="formMessage"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Autor: Jan Kowalski</p>
+        <p>Data rozpoczęcia pracy: 2024-06-06</p>
+    </footer>
+    <script>
+        document.getElementById('animalForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Pobieranie wartości z formularza
+            var name = document.getElementById('name').value;
+            var species = document.getElementById('species').value;
+            var age = document.getElementById('age').value;
+            var color = document.getElementById('color').value;
+
+            // Walidacja danych
+            if (name.trim() === '' || species.trim() === '' || age.trim() === '' || color.trim() === '') {
+                document.getElementById('formMessage').textContent = 'Wszystkie pola są wymagane!';
+                document.getElementById('formMessage').style.color = 'red';
+                return;
+            }
+
+            // Dodawanie nowego wiersza do tabeli
+            var table = document.getElementById('animalTable').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+
+            cell1.textContent = name;
+            cell2.textContent = species;
+            cell3.textContent = age + ' lat';
+            cell4.textContent = color;
+
+            // Czyszczenie formularza
+            document.getElementById('animalForm').reset();
+
+            // Wyświetlanie wiadomości zwrotnej
+            document.getElementById('formMessage').textContent = 'Zwierzę zostało dodane pomyślnie!';
+            document.getElementById('formMessage').style.color = 'green';
+        });
+    </script>
+</body>
+</html>
